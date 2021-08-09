@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Makes "field" required to be the same as #other</title>
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+ <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+<script>
+// just for the demos, avoids form submit
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var password = $("#txtPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+            if (password != confirmPassword) {
+                document.getElementById("status").innerHTML = "Try again";
+                return false;
+            }
+			alert("Password matched")
+            
+        });
+    });
+</script>
+</head>
+<body>
+<form id="myform">
+<label for="password">Password</label>
+<input id="txtPassword" name="password" />
+<br>
+<label for="password_again">Again</label>
+<input class="left" id="txtConfirmPassword" name="password_again" />
+<br>
+<p style="color:red" id="status"></p>
+<input type="submit" value="Submit" id="btnSubmit">
+</form>
+
+</body>
+</html>
